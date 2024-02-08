@@ -2,7 +2,9 @@ import React from 'react'
 import { RouterProvider } from "react-router-dom";
 import appRouter from "../Router/appRouter";
 
+
 const Body = () => {
+
   return (
     <div>
     <RouterProvider router={appRouter}/>
