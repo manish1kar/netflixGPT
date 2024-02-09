@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { addUser, removeUser } from '../Redux/userSlice';
+import { addUser, removeUser } from '../redux/userSlice';
 import { onAuthStateChanged } from "firebase/auth";
 import { LOGO } from '../utils/constants';
 

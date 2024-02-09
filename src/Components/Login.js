@@ -5,10 +5,8 @@ import { auth } from '../utils/firebase';
 import { updateProfile } from "firebase/auth";
 import Header from './Header';
 import { useDispatch } from 'react-redux';
-import { addUser } from '../Redux/userSlice';
+import { addUser } from '../redux/userSlice';
 import { PHOTO_AVTR } from '../utils/constants';
-
-
 
 const Login = () => {
     const dispatch = useDispatch();
