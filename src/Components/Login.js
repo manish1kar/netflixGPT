@@ -2,16 +2,15 @@ import React, { useRef, useState } from 'react'
 import { formValidation } from '../utils/formValidation';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { updateProfile } from "firebase/auth";
 import Header from './Header';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Redux/userSlice';
+import { PHOTO_AVTR } from '../utils/constants';
 
 
 
 const Login = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [isSignIn, setSignIn] = useState(true);
@@ -37,7 +36,7 @@ const Login = () => {
              // Signed up 
              const user = userCredential.user;
              updateProfile(auth.currentUser, {
-                displayName: name.current.value, photoURL: "https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
+                displayName: name.current.value, photoURL: PHOTO_AVTR
               }).then(() => {
                 const {email, displayName, uid, photoURL } = auth.currentUser;
                 dispatch(addUser({
@@ -46,7 +45,6 @@ const Login = () => {
                     uid : uid,
                     photoURL : photoURL
                 }))
-                navigate("/browse") 
               }).catch((error) => {
                 // An error occurred
                 // ...
@@ -60,7 +58,6 @@ const Login = () => {
     }else{
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
-             // Signed in 
              const user = userCredential.user;
              console.log(user)
             })
