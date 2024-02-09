@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase';
 import { addUser, removeUser } from '../redux/userSlice';
 import { onAuthStateChanged } from "firebase/auth";
 import { LOGO } from '../utils/constants';
+import { removeData, removeMovieTrailer, removeNowPlayingMovies, removePopularMovies, removeTopRatedMovies, removeUpcomingMovies } from '../redux/movieSlice';
 
 
 const Header = () => {
@@ -16,7 +17,6 @@ const Header = () => {
     const clickHandler = () => {
         signOut(auth).then(() => {
           }).catch((error) => {
-            // An error happened.
           });
     }
 
@@ -33,6 +33,11 @@ const Header = () => {
           navigate("/browse")
         } else {
           dispatch(removeUser());
+          dispatch(removeMovieTrailer());
+          dispatch(removeNowPlayingMovies());
+          dispatch(removePopularMovies());
+          dispatch(removeTopRatedMovies());
+          dispatch(removeUpcomingMovies());
           navigate("/")
         }
         return () => unsubscribe();
