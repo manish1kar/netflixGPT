@@ -6,7 +6,7 @@ import { updateProfile } from "firebase/auth";
 import Header from './Header';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/userSlice';
-import { PHOTO_AVTR } from '../utils/constants';
+import { BG_IMG, PHOTO_AVTR } from '../utils/constants';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -57,7 +57,6 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
              const user = userCredential.user;
-             console.log(user)
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -72,7 +71,7 @@ const Login = () => {
     <div>
         <Header/>
         <div className='absolute'>
-            <img alt='bg' src='https://assets.nflxext.com/ffe/siteui/vlv3/5e16108c-fd30-46de-9bb8-0b4e1bbbc509/29d8d7d7-83cc-4b5f-aa9b-6fd4f68bfaa6/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_large.jpg'/>
+            <img alt='bg' src={BG_IMG}/>
         </div>
         <form onSubmit={(e)=> e.preventDefault() } className='p-12 bg-black w-4/12 absolute m-auto left-0 right-0 my-16 text-white rounded-lg bg-opacity-85'>
             <p className='font-bold text-3xl py-4'>{isSignIn ? "Sign In" : "Sign Up"}</p>

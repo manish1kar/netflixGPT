@@ -5,7 +5,7 @@ import { LuBadgeInfo } from "react-icons/lu";
 
 const MovieTitle = ({title, overview}) => {
   return (
-    <div className='w-full aspect-video absolute py-48 pl-12 bg-gradient-to-t from-black '>
+    <div className='w-full aspect-video absolute py-40 pl-12 bg-gradient-to-t from-black '>
       <h1 className='font-bold text-5xl text-white'>{title}</h1>
       <p className='w-1/3 ml-6 m-2 text-white'>{overview}</p>
         <div className='flex'>

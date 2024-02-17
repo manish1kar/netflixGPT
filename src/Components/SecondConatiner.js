@@ -11,15 +11,11 @@ const SecondConatiner = () => {
   if(!nowPlaying || !popular || !topRated || !upcoming) return;
 
   return (
-    <div className='-mt-80 relative z-20'>
-        <div className=''>
-          <MovieList title={"NOW PLAYING"} movies={nowPlaying}/>
-        </div>     
-    <div className='bg-black'>
+    <div className='relative z-20 bg-black -mt-6'>
+    <MovieList title={"NOW PLAYING"} movies={nowPlaying}/>
       <MovieList title={"POPULAR"} movies={popular}/>
       <MovieList title={"TOP RATED"} movies={topRated}/>
       <MovieList title={"UPCOMING"} movies={upcoming}/>
-    </div>
     </div>
   )
 }
